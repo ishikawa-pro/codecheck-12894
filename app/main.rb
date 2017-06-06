@@ -29,7 +29,7 @@ end
 def shorFormula(formula)
     puts formula
     #正規表現でカッコの中を見つける
-    md = formula.match(/[*\(\d\s.\s\d\)*]/)
+    md = formula.match(/\(\d\s.\s\d\)/)
     return md[0].to_s[1,5]
 end
 
@@ -43,7 +43,7 @@ def main(argv)
     result = String.new
     v = argv[0]
     short_fm = shorFormula(v)
-    result << Reverse_polish(v)
+    result << Reverse_polish(short_fm)
     
 #    v.chars do |char|
 #        puts char.to_i
